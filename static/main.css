@@ -1,0 +1,169 @@
+@font-face {
+    font-family: 'Sansation-light';
+    src: url(/fonts/Sansation-Light.ttf);
+}
+
+@font-face {
+    font-family: 'Sansation-regular';
+    src: url(/fonts/Sansation-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Sansation-bold';
+    src: url(/fonts/Sansation-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'Anton-SC';
+    src: url(/fonts/AntonSC-Regular.ttf);
+}
+
+* {
+    font-family: 'Sansation-regular', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 12pt;
+}
+
+.navbar-logo {
+    font-family: 'Anton-SC', sans-serif;
+    font-size: 20pt;
+    padding-left: .5em;
+}
+
+body {
+    color: black;
+    background: #F4F0E7;
+}
+
+nav {
+    height: 60px;
+    background: #3F4F44;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.links-container {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+nav a {
+    height: 100%;
+    padding: 0 10px;
+    
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    white-space: nowrap;
+    color: #DCD7C9;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+nav .first-link {
+    margin-left: auto;
+}
+
+#sidebar-active {
+    display: none;
+}
+
+.open-sidebar-button, .close-sidebar-button {
+    display: none;
+}
+
+@media(max-width: 730px) {
+    .links-container {
+        flex-direction: column;
+        align-items: flex-start;
+
+        position: fixed;
+        top: 0;
+        right: -100%;
+        z-index: 10;
+        width: 300px;
+
+        background: #3F4F44;
+        box-shadow: -5px 0 5px #00000040;
+        transition: .5s ease-out;
+    }
+
+    nav a {
+        box-sizing: border-box;
+        height: auto;
+        width: 100%;
+        padding: 10px 30px;
+        justify-content: flex-start;
+    }
+
+    .open-sidebar-button,
+    .close-sidebar-button {
+        padding: 20px;
+        display: block;
+    }
+
+    #sidebar-active:checked~.links-container {
+        right: 0;
+    }
+
+    #sidebar-active:checked~#overlay {
+        background: transparent;
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        z-index: 9;
+    }
+}
+
+form{
+    margin: 0 0 0 auto;
+}
+
+.search-bar{
+    display: flex;
+    flex-wrap: nowrap;
+
+    padding: 20px 30px;
+    height: 36px;
+}
+
+.search-bar input{
+    height: 100%;
+    padding-left: 34px;
+    border: 0;
+    border-radius: 100px 0 0 100px;
+    box-shadow: 0 0 0;
+
+    background: #2C3930;
+    
+    max-width: 250px;
+    color: #DCD7C9;
+}
+
+.search-icon svg{
+    position: absolute;
+    margin: 6px;
+}
+
+.search-button{
+    height: 100%;
+    padding: 0 10px 0 10px;
+    border: 0;
+    border-radius: 0 100px 100px 0;
+    background: #536859;
+    color: #DCD7C9;
+}
