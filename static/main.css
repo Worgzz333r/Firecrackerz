@@ -25,13 +25,7 @@
 }
 
 html {
-    font-size: 12pt;
-}
-
-.navbar-logo {
-    font-family: 'Anton-SC', sans-serif;
-    font-size: 20pt;
-    padding-left: .5em;
+    font-size: 13pt;
 }
 
 body {
@@ -47,6 +41,23 @@ nav {
     align-items: center;
 }
 
+.navbar-logo {
+    font-family: 'Anton-SC', sans-serif;
+    font-size: 24pt;
+    padding: 0 .5em 0 .5em;
+    width: fit-content;
+    margin-right: auto;
+    transition: all .2s ease-in;
+    height: 60px;
+}
+
+.navbar-logo:hover {
+    color: black;
+    text-decoration: none;
+    background: transparent;
+}
+
+/* LINKS CSS START */
 .links-container {
     height: 100%;
     width: 100%;
@@ -58,32 +69,131 @@ nav {
 
 nav a {
     height: 100%;
-    padding: 0 10px;
-    
+
     display: flex;
     align-items: center;
     text-decoration: none;
     white-space: nowrap;
     color: #DCD7C9;
+    padding: 0 10px;
+
+    transition: all .2s ease-in;
 }
 
 nav a:hover {
-    text-decoration: underline;
+    color: black;
+    text-decoration: none;
+    background: #5C7363;
 }
 
-nav .first-link {
-    margin-left: auto;
+/* LINKS CSS END */
+
+/* PFP CSS START */
+.pfp * {
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    color: #DCD7C9;
 }
+
+.pfp {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+
+    width: 100%;
+}
+
+.pfp span {
+    display: none;
+    height: fit-content;
+}
+
+.user-pfp {
+    background: #DCD7C9;
+    height: 40px;
+}
+
+.pfp-link-folded {
+    display: none;
+}
+
+/* PFP CSS END */
+
 
 #sidebar-active {
     display: none;
 }
 
-.open-sidebar-button, .close-sidebar-button {
+.open-sidebar-button,
+.close-sidebar-button {
     display: none;
 }
 
-@media(max-width: 730px) {
+
+/* SEARCH-BAR CSS START*/
+form {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.search-bar {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: auto;
+    height: 40px;
+    width: 100%;
+    max-width: 584px;
+    min-width: 264px;
+}
+
+.search-bar input {
+    height: 100%;
+    padding-left: 40px;
+    border: 0;
+    border-radius: 100px 0 0 100px;
+    font-size: 13pt;
+    width: 100%;
+    max-width: 510px;
+
+    background: #2C3930;
+    color: #DCD7C9;
+
+    transition: all .2s ease-in;
+}
+
+.search-bar input:focus {
+    box-shadow: inset 0 0 5px #00000040;
+    outline: 0;
+    background-color: #DCD7C9;
+    color: black;
+}
+
+.search-icon svg {
+    position: absolute;
+    margin: 8px;
+}
+
+.search-button {
+    font-size: 13pt;
+    height: 100%;
+    padding: 0 10px;
+    border: 0;
+    border-radius: 0 100px 100px 0;
+    background: #506456;
+    color: #DCD7C9;
+
+    transition: all .2s ease-in;
+}
+
+.search-button:hover {
+    color: black;
+    background: #5C7363;
+}
+
+/* SEARCH-BAR CSS END */
+
+@media(max-width: 790px) {
     .links-container {
         flex-direction: column;
         align-items: flex-start;
@@ -103,18 +213,19 @@ nav .first-link {
         box-sizing: border-box;
         height: auto;
         width: 100%;
-        padding: 10px 30px;
+        padding: 10px 20px;
         justify-content: flex-start;
     }
 
     .open-sidebar-button,
     .close-sidebar-button {
-        padding: 20px;
+        padding: 10px;
         display: block;
     }
 
     #sidebar-active:checked~.links-container {
         right: 0;
+        border-radius: 1cap 0 0 1cap;
     }
 
     #sidebar-active:checked~#overlay {
@@ -127,43 +238,40 @@ nav .first-link {
 
         z-index: 9;
     }
-}
 
-form{
-    margin: 0 0 0 auto;
-}
+    .search-bar input {
+        min-width: 169px;
+        padding-left: 15px;
+    }
 
-.search-bar{
-    display: flex;
-    flex-wrap: nowrap;
+    .search-bar svg {
+        display: none;
+    }
 
-    padding: 20px 30px;
-    height: 36px;
-}
+    form {
+        margin: 10px 0 10px 20px;
+    }
 
-.search-bar input{
-    height: 100%;
-    padding-left: 34px;
-    border: 0;
-    border-radius: 100px 0 0 100px;
-    box-shadow: 0 0 0;
+    .pfp-link {
+        display: none;
+    }
 
-    background: #2C3930;
-    
-    max-width: 250px;
-    color: #DCD7C9;
-}
+    .pfp-link-folded {
+        margin-left: auto;
 
-.search-icon svg{
-    position: absolute;
-    margin: 6px;
-}
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        padding: 10px 20px;
 
-.search-button{
-    height: 100%;
-    padding: 0 10px 0 10px;
-    border: 0;
-    border-radius: 0 100px 100px 0;
-    background: #536859;
-    color: #DCD7C9;
+        width: 100%;
+    }
+
+    .pfp-link-folded span {
+        display: inline-block;
+    }
+
+    .vert-line {
+        display: none;
+    }
 }
