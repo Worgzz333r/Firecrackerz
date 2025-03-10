@@ -109,11 +109,6 @@ nav a:hover {
     height: fit-content;
 }
 
-.user-pfp {
-    background: #DCD7C9;
-    height: 40px;
-}
-
 .pfp-link-folded {
     display: none;
 }
@@ -191,7 +186,32 @@ form {
     background: #5C7363;
 }
 
+.search-bar input[type='search']::-webkit-search-cancel-button{
+    display: none;
+}
 /* SEARCH-BAR CSS END */
+
+/* BOTTOM-NAV CSS START */
+.bot-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #DCD7C9;
+    height: 30px;
+}
+
+.bot-nav a {
+    color: black;
+    text-decoration: none;
+    padding: 0 40px;
+}
+
+.bot-nav a:hover{
+    text-decoration: underline;
+}
+
+/* BOTTOM-NAV CSS END */
 
 @media(max-width: 790px) {
     .links-container {
@@ -271,7 +291,11 @@ form {
         display: inline-block;
     }
 
-    .vert-line {
-        display: none;
+    .bot-nav {
+        justify-content: space-around;
+    }
+
+    .bot-nav a {
+        padding: 0;
     }
 }
